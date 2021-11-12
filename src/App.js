@@ -1,31 +1,29 @@
+import { Route, BrowserRouter as Router, Switch } from "react-router-dom"
 
-import React, {useState, useEffect} from "react";
-import {Route, Link, Switch} from 'react-router-dom';
-import Form from './components/Form';
-import './App.css';
+import Confirmation from "./components/confirmation";
+import Home from "./components/Home";
+import Nav from "./components/Nav";
+import Pizza from "./components/Pizza";
+import React from "react";
 
-
-
-const App = () => { 
+const App = () => {
   return (
-    <div>
-      <header>
-        <h1>Lambda Eats</h1>
-        <h2>Umer's Pizza</h2>
-      <nav>
-        <Link to='/'><h2>Home</h2></Link>
-        <Link to='/pizza'><h2>Order Online</h2></Link>
-      </nav>
-      </header>
+    <Router>
+      <h1>Lambda Eats</h1>
+      <Nav />
       <Switch>
-        <Route path='/pizza'>
-          <Form/>
+        <Route path="/Pizza">
+          <Pizza />
         </Route>
-        <Route path='/'>
-          <p>The internet's best pizza</p>
+        <Route path ="/confirmation">
+          <Confirmation />
+        </Route>
+        <Route path ="/">
+          <Home />
         </Route>
       </Switch>
-    </div>
+
+    </Router>
   );
 };
 export default App;
